@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Display</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+        }
+        .container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .button {
+            position: absolute;
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+        }
+        .button.mp3 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .button.mp4 {
+            top: calc(50% + 28px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="main.webp" alt="UI Image">
+        <a href="mp3input.html" class="button mp3">
+            <img src="mp3.webp" alt="MP3 Button Image">
+        </a>
+        <a href="mp4input.html" class="button mp4">
+            <img src="mp4.webp" alt="MP4 Button Image">
+        </a>
+    </div>
+
+    <script>
+        const mp3Button = document.querySelector('.button.mp3');
+        const mp4Button = document.querySelector('.button.mp4');
+
+        mp3Button.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.open(this.getAttribute('href'), '_blank');
+        });
+
+        mp4Button.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.open(this.getAttribute('href'), '_blank');
+        });
+    </script>
+</body>
+</html>
